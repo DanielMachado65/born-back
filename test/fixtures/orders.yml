@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  total: 1.5
+  payment_type: 1
+  order_hash: MyString
+  products: one
+
+two:
+  total: 1.5
+  payment_type: 1
+  order_hash: MyString
+  products: two
