@@ -29,7 +29,6 @@ class Api::V1::ApiController < ActionController::Base
   def apply_filters(objects, *scopes)
     scopes.each do |scope|
       param_name = scope.to_s.sub('by_', '')
-
       next unless params[param_name] && objects.respond_to?(scope)
 
       objects =
