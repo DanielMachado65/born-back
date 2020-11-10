@@ -1,3 +1,15 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # Api definition
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :categories
+      resources :products, expect: :index
+
+      # order
+      resources :order_statuses, only: %I[index show create]
+      resources :orders, expect: :index do
+        resources :order_lines, only: %I[create destroy]
+      end
+    end
+  end
 end

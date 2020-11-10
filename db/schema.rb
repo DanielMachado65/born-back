@@ -21,15 +21,6 @@ ActiveRecord::Schema.define(version: 2020_10_25_236557) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "create_order_lines", force: :cascade do |t|
-    t.bigint "product_id"
-    t.bigint "order_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["order_id"], name: "index_create_order_lines_on_order_id"
-    t.index ["product_id"], name: "index_create_order_lines_on_product_id"
-  end
-
   create_table "order_lines", force: :cascade do |t|
     t.bigint "product_id"
     t.bigint "order_id"
@@ -58,8 +49,6 @@ ActiveRecord::Schema.define(version: 2020_10_25_236557) do
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 
-  add_foreign_key "create_order_lines", "orders"
-  add_foreign_key "create_order_lines", "products"
   add_foreign_key "order_lines", "orders"
   add_foreign_key "order_lines", "products"
   add_foreign_key "products", "categories"
