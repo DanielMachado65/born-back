@@ -7,6 +7,7 @@ class Api::V1::CategoriesController < Api::V1::ApiController
   def index
     @categories = Category.all
     @categories = apply_filters(@categories, :by_name)
+    render json: @categories
   end
 
   def show

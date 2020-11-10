@@ -25,9 +25,8 @@ class Api::V1::ApiController < ActionController::Base
     @bearer_token = header.gsub(pattern, '') if header&.match(pattern)
   end
 
+  # HACK: in this filter you have a scope on model
   def apply_filters(objects, *scopes)
-    binding.pry
-    
     scopes.each do |scope|
       param_name = scope.to_s.sub('by_', '')
 
